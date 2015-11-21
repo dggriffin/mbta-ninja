@@ -1,4 +1,6 @@
 <template name="penguin">
+
+<div class="penguin-content">
     <div class="logo">
         <img class="ninja-logo" src="/images/ninja.png" />
         <h1 class="app-title">
@@ -6,10 +8,12 @@
         </h1>
       </div>
 
-      <div class='map-view'>
+      <input id="pac-input"/>
+
+      <div class='map-view' id="map">
         
         {{> googleMap name="exampleMap" options=exampleMapOptions}}
 
       </div>
-  
+  </div>
 </template>
