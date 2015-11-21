@@ -7,18 +7,10 @@ Template.penguin.onRendered(function() {
 Template.penguin.onCreated(function() {
 
     GoogleMaps.ready('exampleMap', function(map) {
-        var marker = new google.maps.Marker({
-            position : {lat: parseFloat(Stops.findOne().stop_lat), lng: parseFloat(Stops.findOne().stop_lon)},
-            draggable: true,
-            map: map.instance
-        });
-
         var stops = Stops.find().fetch();
 
         _.each(stops, function(stop){
-            debugger;
             new google.maps.Marker({
-                //position: new google.maps.LatLng(parseFloat(stop.stop_lat), parseFloat(stop.stop_lon)),
                 position: {lat: parseFloat(stop.stop_lat), lng: parseFloat(stop.stop_lon)},
                 map: map.instance
             });
