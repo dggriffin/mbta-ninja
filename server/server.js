@@ -20,7 +20,7 @@ Meteor.startup(function() {
     var api_key = "wX9NwuHnZU2ToO7GmGR9uw"
     var format = "json"
 
-    var routes = ["1"];
+    var routes = ["1", "15", "22", "23", "28", "32", "39", "57", "66", "71", "73", "111"];
     // TODO: add routes:
     // Silver Line, 116/117
     
