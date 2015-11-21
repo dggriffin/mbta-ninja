@@ -1,6 +1,6 @@
 Template.penguin.onRendered(function() {
     GoogleMaps.load({
-    	libraries: 'geometry,places'
+        libraries: 'geometry,places'
     });
 });
 
@@ -8,13 +8,21 @@ Template.penguin.onCreated(function() {
 
     GoogleMaps.ready('exampleMap', function(map) {
         var marker = new google.maps.Marker({
-            position: map.options.center,
+            position : {lat: parseFloat(Stops.findOne().stop_lat), lng: parseFloat(Stops.findOne().stop_lon)},
+            draggable: true,
             map: map.instance
         });
 
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        var stops = Stops.find().fetch();
+
+        _.each(stops, function(stop){
+            debugger;
+            new google.maps.Marker({
+                //position: new google.maps.LatLng(parseFloat(stop.stop_lat), parseFloat(stop.stop_lon)),
+                position: {lat: parseFloat(stop.stop_lat), lng: parseFloat(stop.stop_lon)},
+                map: map.instance
+            });
+        })
 
         map.addListener('bounds_changed', function() {
             searchBox.setBounds(map.getBounds());
@@ -64,11 +72,6 @@ Template.penguin.onCreated(function() {
                 }
 
                 console.log(place.name)
-
-            });
-            map.fitBounds(bounds);
-        });
-
     });
 });
 
@@ -83,5 +86,4 @@ Template.penguin.helpers({
             };
         }
     }
-
 });

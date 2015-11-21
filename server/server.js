@@ -14,11 +14,12 @@ Meteor.startup(function() {
     }
   });
 
+ console.log(_.isUndefined(Stops.findOne()));
 
+ console.log(Stops.findOne());
 
   // If there database is not yet populated then add info from the MBTA API
   if(_.isUndefined(Stops.findOne())){
-    console.log("here")
     var url = "http://realtime.mbta.com/developer/api/v2/stopsbyroute"
     var api_key = "wX9NwuHnZU2ToO7GmGR9uw"
     var format = "json"
@@ -81,4 +82,8 @@ SyncedCron.start();
 // Publish subset of non-expired reports to client
 Meteor.publish('reports', function () {
   return Reports.find({expired: false});
+});
+
+Meteor.publish('stops', function(){
+  return Stops.find();
 });
