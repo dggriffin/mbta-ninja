@@ -57,11 +57,14 @@ Template.penguin.onCreated(function() {
                 }));
 
                 if (place.geometry.viewport) {
-                    // Only geocodes have viewport.
+                    // Only geocoes have viewport.
                     bounds.union(place.geometry.viewport);
                 } else {
                     bounds.extend(place.geometry.location);
                 }
+
+                console.log(place.name)
+
             });
             map.fitBounds(bounds);
         });

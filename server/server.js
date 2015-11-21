@@ -18,13 +18,14 @@ Meteor.startup(function() {
 
   // If there database is not yet populated then add info from the MBTA API
   if(_.isUndefined(Stops.findOne())){
+    console.log("here")
     var url = "http://realtime.mbta.com/developer/api/v2/stopsbyroute"
     var api_key = "wX9NwuHnZU2ToO7GmGR9uw"
     var format = "json"
 
-    var routes = ["1"];
+    var routes = ["1", "15", "22", "23", "28", "32", "39", "57", "66", "71", "73", "111"];
     // TODO: add routes:
-    // Silver Line, 1, 15, 22, 23, 28, 32, 39, 57, 66, 71, 73, 111, 116/117
+    // Silver Line, 116/117
     
     _.each(routes, function(route){
       var data = Meteor.http.get(url + "?api_key=" + api_key + "&format=" + format + "&route=" + route).data;
