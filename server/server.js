@@ -14,13 +14,8 @@ Meteor.startup(function() {
     }
   });
 
- console.log(_.isUndefined(Stops.findOne()));
-
- console.log(Stops.findOne());
-
   // If there database is not yet populated then add info from the MBTA API
   if(_.isUndefined(Stops.findOne())){
-    console.log('WEEEE');
     var url = "http://realtime.mbta.com/developer/api/v2/stopsbyroute"
     var api_key = "wX9NwuHnZU2ToO7GmGR9uw"
     var format = "json"
