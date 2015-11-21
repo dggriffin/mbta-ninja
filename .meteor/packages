@@ -14,3 +14,4 @@ iron:router
 momentjs:moment
 nimble:restivus
 dburles:google-maps
+http
