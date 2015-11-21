@@ -15,5 +15,15 @@
         {{> googleMap name="exampleMap" options=exampleMapOptions}}
 
       </div>
+
+      <div class='stop-list' id="stop-list">
+        HERE
+        <ul>
+        {{#each stops}}
+          <li>{{this.name}}</li>
+        {{/each}}
+        </ul>
+
+      </div>
   </div>
 </template>

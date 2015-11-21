@@ -20,7 +20,7 @@ Meteor.startup(function() {
     var api_key = "wX9NwuHnZU2ToO7GmGR9uw"
     var format = "json"
 
-    var routes = ["1", "15", "22", "23", "28", "32", "39", "57", "66", "71", "73", "111"];
+    var routes = ["1", "15",  "22", "23", "28", "32", "39", "57", "66", "71", "73", "111"];
     // TODO: add routes:
     // Silver Line, 116/117
     
@@ -34,10 +34,10 @@ Meteor.startup(function() {
           _.each(stops, function(stop){
             console.log(stop)
             Stops.insert({ 
-              stop_id : stop.stop_id,
-              stop_name: stop.stop_name,
-              stop_lat: stop.stop_lat,
-              stop_lon: stop.stop_lon
+              id : stop.stop_id,
+              name: stop.stop_name,
+              lat: parseFloat(stop.stop_lat),
+              lon: parseFloat(stop.stop_lon)
             });
           })
       });  
