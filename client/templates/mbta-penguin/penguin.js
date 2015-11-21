@@ -72,6 +72,8 @@ Template.penguin.onCreated(function() {
                 }
 
                 console.log(place.name)
+            });
+        })
     });
 });
 
