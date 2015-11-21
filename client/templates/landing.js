@@ -40,6 +40,9 @@ Template.landing.events({
 });
 
 Template.landing.helpers({
+  busLines: function() {
+    return listOfLines().bus;
+  },
   subwayLines: function() {
     return listOfLines().subway;
   },
